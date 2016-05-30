@@ -1,2 +1,2 @@
-# rn-movie-tutorial
+# NowShowing
 React Native - Movie Tutorial
