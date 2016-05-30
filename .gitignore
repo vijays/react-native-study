@@ -22,11 +22,12 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/iOS/IJ
+# Android/iOS/IJ/vscode
 #
 .idea
 .gradle
 local.properties
+.vscode/
 android/
 ios/
 
