@@ -22,7 +22,8 @@ import {
 const REQUEST_URL_PART1 = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22';
 const REQUEST_URL_PART2 = '%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
 
-const ALERT_MESSAGE_INTERNET_NOT_CONNECTED = 'Error connecting to the server..\nAre you connected to the internet?';
+const MSG_CONNECTION_ERROR = 'Error connecting to the server..\nAre you connected to the internet?';
+const MSG_NO_DATA_FOUND = 'No data found..\nPlease enter a valid city/state..';
 
 /* Not used - changed to direct submit but retaining for learning purpose
 // Button template
@@ -85,7 +86,7 @@ componentDidMount() {
         this.fetchData();
       }
       else {
-        Alert.alert('', ALERT_MESSAGE_INTERNET_NOT_CONNECTED)
+        Alert.alert('', MSG_CONNECTION_ERROR)
       }
     }
   }
@@ -110,7 +111,7 @@ componentDidMount() {
           )
       })
       .catch((error) => {
-        Alert.alert('', ALERT_MESSAGE_INTERNET_NOT_CONNECTED);
+        Alert.alert('', MSG_NO_DATA_FOUND);
       })
       .done();
   }
@@ -136,7 +137,7 @@ componentDidMount() {
         </View>
         <View style={styles.containerContent}>
           <TextInput
-            placeholder="Please enter city.."
+            placeholder="Please enter a city/state.."
             value={this.state.cityInput}
             style={styles.centerText}
             onChangeText={(cityInput) => this.setState({cityInput})}
